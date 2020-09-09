@@ -5,7 +5,52 @@
 ## Objectives
 
 - explain the four principles of the 'this' keyword and demonstrate each explanation with an example of their uses
+Answer:
+1. Whenever a function is contained in the global scope, the value of this inside of that function will be the window object.
+Example:
+
+function greeting(name) {
+    console.log('Hello ' + name);
+    console.log(this);
+}
+
+greeting('Rafiullah');
+
+2. Whenever a function is called by a preceding dot, the object before that dot is this.
+Example:
+var greetMe = {
+    greeting: 'Hello ',
+    speak: function(name) {
+        console.log(this.greeting + name);
+        console.log(this);
+    }
+}
+
+greetMe.speak('Rafiullah');
+3. Whenever a constructor function is used, this refers to the specific instance of the object that is created and returned by the constructor function.
+Example:
+function GreetMe(name) {
+    this.greeting = 'Hello ';
+    this.name = name;
+    this.speak = function() {
+        console.log(this.greeting + this.name);
+        console.log(this);
+    }
+};
+
+var greetJohn = new GreetMe('John');
+var greetJane = new GreetMe('Jane');
+
+greetJohn.speak();
+greetJane.speak();
+4. Whenever JavaScript’s call or apply method is used, this is explicitly defined.
+
 - describe, and use prototypes, constructor functions the new keyword, and pseudo-classical inheritance to build objects
+Answer:
+A prototype is an existing inbuilt functionality in JavaScript. Whenever we create a JavaScript function, JavaScript adds a prototype property to that function
+This keyword is simply refer to object when we call on it. 
+A constructor is any function which is used as a constructor. The language doesn’t make a distinction. A function can be written to be used as a constructor or to be called as a normal function, or to be used either way.
+
 
 ## Introduction
 
