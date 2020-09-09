@@ -100,18 +100,24 @@ Car.prototype.fill = function(gallons){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  this.name = name;
+  this.age= age;
+  this.favoriteToy = favoriteToy;
 }
-
+Baby.prototype= Object.create(Person.prototype)
+Baby.prototype.play = function(){
+return `Playing with ${this.favoriteToy}`;
+}
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+   1. Global binding: If we are in strict mode then the default value of this keyword is undefined otherwise this keyword act as global object,
+   it's called default binding of this keyword. 
+  2. implicit Binding: when dot notation is used to invoke a function.
+  3. New Binding: it is like return returned funtion value.
+  4. this refers to the object passed in INSTEAD of the object before the dot.
 */
 
 
